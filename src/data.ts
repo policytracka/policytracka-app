@@ -1,4 +1,6 @@
-const data = {
+import Cluster from './types/Cluster'
+
+const data: Cluster = {
 
     name: 'Cluster',
     children: [

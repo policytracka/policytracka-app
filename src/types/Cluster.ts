@@ -1,6 +1,6 @@
 export default interface Cluster {
   name: string;
-  value: number;
+  value?: number;
   children?: Policy[];
 }
 

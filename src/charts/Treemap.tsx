@@ -12,7 +12,7 @@ export default function Treemap({ width, height, data }: { width: number, height
     
     const root = d3
       .hierarchy<Cluster>(data)
-      .sum((d) => d.value)
+      .sum((d) => d.value!)
       .sort((a, b) => b.value! - a.value!)
 
     const treemapRoot = d3.treemap<Cluster>().size([width, height]).padding(1)(root)
