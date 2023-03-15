@@ -7,7 +7,7 @@ type Props = {}
 const App = (props: Props) => {
   return (
     <div>
-      <div className='absolute z-10 max-w-screen-2xl'>
+      <div className='absolute z-10 '>
         <Navbar />
       </div>
       

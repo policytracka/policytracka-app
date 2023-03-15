@@ -6,13 +6,15 @@ type Props = {}
 
 const hero = (props: Props) => {
   return (<div>
- <div className='bg-gradient-to-b from-policypink to-policyorange h-[80vh] w-[100vw] flex flex-col justify-end items-center'>
-    <img src={Bulb} className='w-[207px] relative top-16'/>
+ <div className='bg-gradient-to-b from-policypink to-policyorange h-[100vh] w-[100vw] flex flex-col justify-end items-center'>
+    <img src={Bulb} className='w-[20vw] relative top-[2%]'/>
     <img src={Hand} className='w-[390px]  '/>
     </div>
-    <div>
-Creativity
-    From
+    <div className='absolute  top-[20%]  w-[100vw] text-center text-[150px] font-bold text-white leading-tight	
+
+drop-shadow-md'>
+Creativity<br />
+    From<br />
     Policy
 
     </div>
