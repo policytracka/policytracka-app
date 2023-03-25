@@ -30,13 +30,13 @@ const Home = (props: Props) => {
       <body className="bg-auto bg-no-repeat min-h-screen w-full ">
         <div className="min-h-screen min-w-full">
           <div className="flex items-center">
-            <div className="relative isolate pt-0 lg:px-0 ">
+            <div className="relative isolate lg:px-0 ">
               <Navbar />
               <Hero />
               <div className="grid grid-cols-2 place-items-center pt-4 ">
                 <Card />
               </div>
-              <div className="grid grid-cols-1 gap-4 place-items-center pt-5">
+              <div className="grid grid-cols-1 gap-4 place-items-center pt-5 pb-5">
                 <WordCloud />
                 {<Treemap data={data} height={700} width={1400} />}
               </div>

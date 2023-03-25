@@ -26,20 +26,19 @@ export default function Treemap({ width, height, data }: { width: number, height
     .data(treemapRoot.leaves())
     .join('g')
     .attr('transform', (d) => `translate(${d.x0},${d.y0})`)
-
+    
     const fader = (color: string) => d3.interpolateRgb(color, '#fff')(0.3)
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10.map(fader))
-
     nodes
       .append('rect')
       .attr('width', (d) => d.x1 - d.x0)
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d) => colorScale(d.data.name))
-      .on('click', (d) => {
-        navigate(`/topic-policy/${d.data}`);
-        console.log(d.data.id)
-      });
-
+      .on('click', 
+        function(event, d) {
+          navigate(`/topic-policy/${d.data.id}`)
+        }
+      )
       const percentageFontSize = 64;
       const nameFontSize = 16;
   
