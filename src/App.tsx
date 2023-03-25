@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import PolicyCompareGraph from "./pages/PolicyCompare/PolicyGraph";
 import TopicPolicy from "./pages/TopicPolicy";
 import PolicyGraph from "./pages/PolicyCompare/PolicyGraph";
+import PartyPolicy from "./pages/PartyPolicy";
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,8 @@ function App() {
         <Routes>
           <Route path="/topic-policy" Component={TopicPolicy} />
           <Route path="/" Component={Home} />
-          <Route path="/Compare" Component={PolicyGraph} />
+          <Route path="/partygraph" Component={PolicyGraph} />
+          <Route path="/partypolicy" Component={PartyPolicy} />
         </Routes>
       </Router>
     </div>
