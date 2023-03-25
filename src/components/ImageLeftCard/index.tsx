@@ -5,7 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-interface Props {}
+interface Props {
+  party: string;
+  title: string;
+  detail?: string;
+  image?: string;
+  link?: string;
+}
 
 export default function ImageLeftCard(props: Props) {
   return (
@@ -24,7 +30,9 @@ export default function ImageLeftCard(props: Props) {
           quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
           nihil.
         </p>
-        <div className="text-right">Read more &gt;</div>
+        {
+          props.link && <div className="text-right">Read more &gt;</div>
+        }
       </div>
     </div>
   );

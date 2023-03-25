@@ -2,23 +2,29 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/navbar";
 import Grid from "@mui/material/Grid";
 import ImageLeftCard from "../components/ImageLeftCard";
+import HeaderTitle4Line from "../components/HeaderTtitle4Line";
+import { useParams } from 'react-router-dom';
+import HeaderTitle from "../components/HeaderTtitle";
 
 type Props = {};
 
 const Policy = (props: Props) => {
-  const [policyItems, setPolicyItems] = useState([
-    {
-      title: "",
-      content: "",
-    },
-    {
-      title: "",
-      content: "",
-    },
-  ]);
-  const [policyTitle, setPolicyTitle] = useState("เพิ่มโรงเรียน 3");
-  const [partyTitle, setPartyTitle] = useState("พรรคก้าวไกล");
-  const [policyAmount, setPolicyAmount] = useState(10);
+  const { PolicyId } = useParams();
+  const [policyTitle, setPolicyTitle] = useState("");
+  const [policyAmount, setPolicyAmount] = useState(0);
+  const [policyItems, setPolicyItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`);
+      const data = await res.json()
+      console.log('Data ',data.group.data)
+      setPolicyTitle(data.group.name)
+      setPolicyAmount(data.group.data.length)
+      setPolicyItems(data.group.data)
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-no-repeat min-h-screen w-full">
@@ -35,18 +41,18 @@ const Policy = (props: Props) => {
         </div>
       </div>
       <div className="bg-white w-screen text-black pb-10 px-10">
-        <div>
-          <div className="text-3xl">นโยบาย</div>
-          <div className="text-6xl">{policyTitle}</div>
-          <div className="text-4xl">{partyTitle}</div>
-          <div className="text-3xl">พบ {policyAmount} นโยบาย</div>
-        </div>
-
+        <HeaderTitle
+          topic1={"เปรียบเทียบ"}
+          hightlightPolicy={policyTitle}
+          topic2={"พบ"}
+          hightlightPolicyCount={policyAmount.toString()}
+          topic3={"นโยบาย"}
+        />
         <div className="my-10">
           <div className="grid grid-cols-1">
             {policyItems.map((item, index) => (
               <div key={index}>
-                <ImageLeftCard />
+                <ImageLeftCard party={item.party} title={item.title}  image={""}/>
               </div>
             ))}
           </div>

@@ -14,13 +14,12 @@ const Home = (props: Props) => {
   const [treeData, setTreeData] = useState<Cluster>();
   useEffect(() => {
     const fetchDatas = async () => {
-      const res = await fetch("http://localhost:8000/api/treemap");
+      const res = await fetch("https://www.policytracka/treemap");
       const data = await res.json();
       const tempData = {
         name: "Cluster",
         children: data.treemap,
       };
-      console.log("Data ", data.treemap);
       setTreeData(tempData);
     };
     fetchDatas();
