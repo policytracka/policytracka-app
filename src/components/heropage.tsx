@@ -10,7 +10,7 @@ export default function Heropage() {
                 </div>
               </a>
             </figure>
-            <figcaption className="absolute px-0 text-lg text-white top-20">
+            <figcaption className="absolute px-0 text-lg text-white top-40">
               <div className="flex flex-col space-x-0">
               <div className="text-center">
                 <h1 className="drop-shadow-lg font-bold pt-4 text-white sm:text-7xl">
