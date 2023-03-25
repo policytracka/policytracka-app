@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import Treemap from "../charts/Treemap";
 import Hero from "../components/hero/hero";
 import Navbar from "../components/navbar/navbar";
@@ -33,13 +34,13 @@ const Home = (props: Props) => {
           <div className="relative isolate pt-0 lg:px-0 ">
             <Navbar />
             <Hero />
-            <div className="grid grid-cols-2 gap-0 place-items-center pt-4 ">
+            <div className="grid grid-cols-2 place-items-center pt-4 ">
               <Card />
             </div>
             <div className="grid grid-cols-1 gap-4 place-items-center pt-5">
               <WordCloud />
               {
-                treeData && <Treemap data={treeData} height={400} width={600} />
+                 <Treemap data={data} height={700} width={1400} />
               }
             </div>
             </div>
