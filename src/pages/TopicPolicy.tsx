@@ -8,7 +8,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
 import ContentCard, { CardContent } from "../components/PolicyCard";
-import Banner from "../components/banner";
+import Banner from "../components/Banner";
 import HeaderTitle from "../components/HeaderTtitle";
 
 type Props = {};

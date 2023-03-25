@@ -30,10 +30,6 @@ export default function Treemap({ width, height, data }: { width: number, height
       .attr('width', (d) => d.x1 - d.x0)
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d) => colorScale(d.data.name))
-      svg.on("click",(d)=> 
-        console.log("rect")
-      );
-
       const percentageFontSize = 64;
       const nameFontSize = 16;
   
