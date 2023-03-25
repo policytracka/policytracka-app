@@ -67,18 +67,7 @@ const PolicyGraph = (props: Props) => {
       explorer: "https://blockchain.info/"
     },
   ]
-  // Set useState Data
-  const [data, setdata] = useState();
-  useEffect(() => {
-    const fetchDatas = async () => {
-      const res = await fetch("https://api.coincap.io/v2/assets/?limit=20");
-      const data = await res.json();
-      setdata(data?.data);
-      console.log("Data :", data);
-    };
-    fetchDatas();
-  }, []);
-
+  
   return (
     <div className="bg-no-repeat min-h-screen w-full">
       {/* Banner */}

@@ -4,6 +4,10 @@ import Cluster from '../types/Cluster'
 
 export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster }) {
   const svgRef = useRef(null)
+  
+  useEffect(() => {
+    renderTreemap()
+  }, [data])
 
   function renderTreemap() {
     const svg = d3.select(svgRef.current)
