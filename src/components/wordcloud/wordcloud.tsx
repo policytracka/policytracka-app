@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './wordcloud.css'
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 
 const theme = createTheme({
