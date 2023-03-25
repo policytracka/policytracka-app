@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import BarGraph from "./BarChart";
 import HeaderTitle from "../../components/HeaderTtitle";
@@ -6,8 +7,10 @@ import HeaderTitle from "../../components/HeaderTtitle";
 type Props = {};
 
 const PolicyGraph = (props: Props) => {
-  // Mockup data 
-  const policyTitle = "เพิ่มโรงเรียน 3"
+  const navigate = useNavigate();
+
+  // Mockup data
+  const policyTitle = "เพิ่มโรงเรียน 3";
   const countPolicy = 13;
   const chartData = [
     {
@@ -16,7 +19,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคเพื่อไทย",
       supply: "12",
       amount: "12",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id2",
@@ -24,7 +27,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคก้าวไกล",
       supply: "5",
       amount: "5",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id3",
@@ -32,7 +35,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคแสงธรรม",
       supply: "2",
       amount: "2",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id4",
@@ -40,7 +43,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคแสงส่อง",
       supply: "3",
       amount: "3",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id5",
@@ -48,7 +51,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคเพื่อธรรม",
       supply: "6",
       amount: "6",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id6",
@@ -56,7 +59,7 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคเพื่อไทย",
       supply: "12",
       amount: "12",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
     {
       id: "id7",
@@ -64,10 +67,14 @@ const PolicyGraph = (props: Props) => {
       name: "พรรคก้าวไกล",
       supply: "5",
       amount: "5",
-      explorer: "https://blockchain.info/"
+      explorer: "https://blockchain.info/",
     },
-  ]
-  
+  ];
+
+  const navigateToPartyPolicyPage = () => {
+    navigate("/partypolicy");
+  };
+
   return (
     <div className="bg-no-repeat min-h-screen w-full">
       {/* Banner */}
@@ -78,16 +85,27 @@ const PolicyGraph = (props: Props) => {
           </div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
             <h1 className="text-8xl mb-5 font-bold drop-shadow-lg">
-              Policy<br/>VS<br/>Policy<br/>
+              Policy
+              <br />
+              VS
+              <br />
+              Policy
+              <br />
             </h1>
             <h5 className="text-4xl font-bold">เปรียบเทียบนโยบายระหว่างพรรค</h5>
           </div>
         </div>
       </div>
       <div className="bg-white w-screen text-black pb-10 px-10">
-      {/* Header */}
-      <HeaderTitle topic1={"เปรียบเทียบ"} hightlightPolicy={policyTitle} topic2={"พบ"} hightlightPolicyCount={chartData.length.toString()} topic3={"นโยบาย"} />
-      <BarGraph data={chartData}/>
+        {/* Header */}
+        <HeaderTitle
+          topic1={"เปรียบเทียบ"}
+          hightlightPolicy={policyTitle}
+          topic2={"พบ"}
+          hightlightPolicyCount={chartData.length.toString()}
+          topic3={"นโยบาย"}
+        />
+        <BarGraph data={chartData} onClick={navigateToPartyPolicyPage} />
       </div>
     </div>
   );

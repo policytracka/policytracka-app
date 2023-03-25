@@ -1,19 +1,24 @@
 import * as d3 from 'd3'
 import React, { useRef, useEffect } from 'react'
 import Cluster from '../types/Cluster'
+import { useNavigate ,useParams} from 'react-router-dom'
 
 export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster }) {
+  const navigate = useNavigate()
+  const { TopicPolicyId } = useParams()
   const svgRef = useRef(null)
 
   function renderTreemap() {
+    
     const svg = d3.select(svgRef.current)
+
     svg.attr('width', width).attr('height', height)
-  
+    
     const root = d3
       .hierarchy<Cluster>(data)
       .sum((d) => d.value!)
       .sort((a, b) => b.value! - a.value!)
-    
+
     const treemapRoot = d3.treemap<Cluster>().size([width, height]).padding(1)(root)
 
     const nodes = svg
@@ -30,6 +35,11 @@ export default function Treemap({ width, height, data }: { width: number, height
       .attr('width', (d) => d.x1 - d.x0)
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d) => colorScale(d.data.name))
+      .on('click', (d) => {
+        navigate(`/topic-policy/${d.data}`);
+        console.log(d.data.id)
+      });
+
       const percentageFontSize = 64;
       const nameFontSize = 16;
   
@@ -41,6 +51,7 @@ export default function Treemap({ width, height, data }: { width: number, height
         .attr('fill', 'white')
         .attr('x', 3)
         .attr('y', 64)
+
       nodes
         .append('text')
         .text((d) => `${d.data.name}`)
@@ -57,7 +68,7 @@ export default function Treemap({ width, height, data }: { width: number, height
 
   return (
     <div>
-      <svg ref= { svgRef }/>
+      <svg ref= { svgRef } />
     </div>
     )
 }
