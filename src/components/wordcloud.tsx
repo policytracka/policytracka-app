@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './wordcloud.css'
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 
 const theme = createTheme({
@@ -18,7 +19,7 @@ const theme = createTheme({
     },
   },
 });
-const card1 = (
+const wordcloud = (
     <React.Fragment>
          <Box
           sx={{
@@ -26,8 +27,8 @@ const card1 = (
             boxShadow: 1,
             borderRadius: 2,
             p: 2,
-            minWidth: 250,
-            maxWidth: 370,
+            minWidth: 500,
+            maxWidth: 1000,
           }}
         >
         <img src='./wordcloud.png'></img>
@@ -37,7 +38,7 @@ const card1 = (
 export default function WordCloud() {
     return (
       <ThemeProvider theme={theme}>
-       {card1}
+       {wordcloud}
       </ThemeProvider>
     );
   }

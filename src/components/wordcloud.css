@@ -1,0 +1,7 @@
+.wordcloud {
+    height: 8em;
+    width: 100%;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
