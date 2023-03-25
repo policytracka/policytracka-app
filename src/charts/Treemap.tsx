@@ -1,6 +1,7 @@
 import * as d3 from 'd3'
 import React, { useRef, useEffect } from 'react'
 import Cluster from '../types/Cluster'
+import { Tooltip } from '@mui/material'
 
 export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster }) {
   const svgRef = useRef(null)
@@ -25,7 +26,6 @@ export default function Treemap({ width, height, data }: { width: number, height
 
     const fader = (color: string) => d3.interpolateRgb(color, '#fff')(0.3)
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10.map(fader))
-
     nodes
       .append('rect')
       .attr('width', (d) => d.x1 - d.x0)
@@ -43,7 +43,7 @@ export default function Treemap({ width, height, data }: { width: number, height
         .attr('fill', 'white')
         .attr('x', 3)
         .attr('y', 64)
-
+      
       nodes
         .append('text')
         .text((d) => `${d.data.name}`)
@@ -52,8 +52,6 @@ export default function Treemap({ width, height, data }: { width: number, height
         .attr('fill', 'white')
         .attr('x', 3)
         .attr('y', 96)
-    }
-
   useEffect(() => {
     renderTreemap()
   }, [data])
@@ -62,5 +60,7 @@ export default function Treemap({ width, height, data }: { width: number, height
     <div>
       <svg ref= { svgRef } />
     </div>
+    
     )
+  }
 }
