@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo_white.png";
 
 type Props = {};
 
-const navbar = (props: Props) => {
+const Navbar = (props: Props) => {
   return (
     <div className="flex 	justify-between text-[20px] text-white	font-bold	 items-center h-32 	w-[100vw] max-w-screen-2xl	">
       <img src={Logo} className="w-[237px] ml-[73px]" />
@@ -17,4 +17,4 @@ const navbar = (props: Props) => {
   );
 };
 
-export default navbar;
+export default Navbar;

@@ -75,4 +75,4 @@ export default function topicCard() {
        {card2}
       </ThemeProvider>
     );
-  }
+}

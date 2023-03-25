@@ -1,11 +1,10 @@
 import React from "react";
 import Treemap from "../charts/Treemap.js";
-import Hero from "../components/hero/hero.js";
-import Heropage from "../components/heropage.js";
-import Navbar from "../components/Layout.js";
-import OutlinedCard from "../components/card";
+import Hero from "../components/hero/hero";
+import Navbar from "../components/navbar/navbar.js";
 import WordCloud from "../components/wordcloud";
 import data from "../data";
+import Card from "../components/card/card";
 type Props = {};
 
 const Home = (props: Props) => {
@@ -15,9 +14,9 @@ const Home = (props: Props) => {
         <div className="min-h-screen min-w-full">
           <div className="relative isolate px-6 pt-0 lg:px-8 ">
             <Navbar />
-            <Heropage />
+            <Hero />
             <div className="grid grid-cols-2 gap-4">
-              <OutlinedCard />
+              <Card />
             </div>
             <div className="grid grid-cols-1 gap-4 place-items-center pt-5">
               <WordCloud />
