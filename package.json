@@ -25,7 +25,8 @@
     "react-icons": "^4.8.0",
     "react-image-zooom": "^1.1.0",
     "react-router-dom": "^6.9.0",
-    "sort-by": "^1.2.0"
+    "recharts": "^2.5.0",
+    "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
