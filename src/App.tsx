@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import OutlinedCard from './components/card';
 import Heropage from './components/heropage';
 import WordCloud from './components/wordcloud';
+import { ReactDOM } from 'react';
 function App() {
   return (
     <div className="App">
