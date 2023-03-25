@@ -23,12 +23,10 @@ export default function ImageLeftCard(props: Props) {
       ></div>
       <div className="rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div className="text-gray-900 font-bold text-xl mb-2">
-          Can coffee make you a better developer?
+          {props.party}
         </div>
         <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
+          {props.title}
         </p>
         {
           props.link && <div className="text-right">Read more &gt;</div>
