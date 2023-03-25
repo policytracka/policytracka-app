@@ -1,36 +1,19 @@
-import Treemap from './charts/Treemap'
-import data from './data'
-import './App.css'
-import Navbar from './components/Layout'
-import Card from '@mui/material/Card';
-import OutlinedCard from './components/card';
-import Heropage from './components/heropage';
-import WordCloud from './components/wordcloud';
-import { ReactDOM } from 'react';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import TopicPolicy from "./pages/TopicPolicy";
 function App() {
   return (
     <div className="App">
-      <div className="bg-no-repeat min-h-screen w-full">
-          <body className="bg-auto bg-no-repeat min-h-screen w-full " >
-          <div className="min-h-screen min-w-full">
-          <div className="relative isolate px-6 pt-0 lg:px-8 ">
-          <Navbar/>
-            <Heropage/>
-            <div className="grid grid-cols-2 gap-4">
-              <OutlinedCard/>
-              </div>
-            <div className="grid grid-cols-1 gap-4 place-items-center pt-5">
-              <WordCloud/>
-              <Treemap data={data} height={400} width={600} />
-              </div>
-            
-              </div>
-            </div>
-          </body>
-        </div>
-      </div>
-    
-  )
+      <Router>
+        <Routes>
+          <Route path="/topic-policy" Component={TopicPolicy} />
+          <Route path="/" Component={Home} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
