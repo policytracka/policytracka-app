@@ -6,9 +6,9 @@ type Props = {}
 
 const hero = (props: Props) => {
   return (<div>
- <div className='bg-gradient-to-b from-policypink to-policyorange h-[100vh] w-[100vw] flex flex-col justify-end items-center'>
+ <div className='bg-gradient-to-b from-policypink to-policyorange h-[100vh] w-[100vw] flex flex-col justify-center items-center'>
     <img src={Bulb} className='w-[20vw] relative top-[2%]'/>
-    <img src={Hand} className='w-[350px]  '/>
+    <img src={Hand} className='w-[350px] '/>
     </div>
     <div className='absolute  top-[20%]  w-[100vw] text-center text-[100px] font-bold text-white leading-tight	
 

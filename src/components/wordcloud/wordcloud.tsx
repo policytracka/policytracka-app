@@ -1,6 +1,10 @@
+import {useState, useEffect} from 'react';
 import * as React from 'react';
+import ImageZoom from "react-image-zooom";
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 
+
+type Props = {}
 const theme = createTheme({
   palette: {
     background: {
@@ -18,7 +22,7 @@ const theme = createTheme({
     },
   },
 });
-const wordcloud = (
+const card1 = (
     <React.Fragment>
          <Box
           sx={{
@@ -26,18 +30,25 @@ const wordcloud = (
             boxShadow: 1,
             borderRadius: 2,
             p: 2,
-            minWidth: 500,
-            maxWidth: 1000,
+            minWidth: 250,
+            maxWidth: 700,
           }}
         >
-        <img src='./wordcloud.png'></img>
+            <div className="gallery-img">
+                      <ImageZoom
+                        src='../src/assets/wordcloud.png'
+                        alt="Zoom-images"
+                        zoom="300"
+                      />
+                 </div>
         </Box>
     </React.Fragment>
 );
-export default function WordCloud() {
-    return (
-      <ThemeProvider theme={theme}>
-       {wordcloud}
-      </ThemeProvider>
-    );
-  }
+const Card = (props: Props) => {
+  return (
+    <ThemeProvider theme={theme}>
+     {card1}
+    </ThemeProvider>
+  );
+}
+export default Card
