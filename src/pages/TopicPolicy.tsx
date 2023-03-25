@@ -8,6 +8,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
 import ContentCard, { CardContent } from "../components/PolicyCard";
+import Banner from "../components/banner";
+import HeaderTitle from "../components/HeaderTtitle";
 
 type Props = {};
 
@@ -80,6 +82,7 @@ const TopicPolicy = (props: Props) => {
 
   return (
     <div className="bg-no-repeat min-h-screen w-full">
+      {/* Banner */}
       <div className="bg-auto bg-no-repeat min-h-screen w-screen">
         <div className="min-h-screen min-w-screen relative">
           <div className="relative isolate px-6 pt-0 lg:px-8 ">
@@ -94,18 +97,8 @@ const TopicPolicy = (props: Props) => {
         </div>
       </div>
       <div className="bg-white w-screen text-black pb-10 px-10">
-        <div className="text-center py-10">
-          <h3 className="text-2xl font-bold text-yellow-400">
-            มีนโยบายเกี่ยวกับ
-          </h3>
-          <h1 className="text-7xl my-2 font-bold text-red-500">
-            {hightlightPolicy}
-          </h1>
-          <h3 className="text-2xl font-bold text-blue-900">
-            มากถึง {hightlightPolicyCount} นโยบาย
-          </h3>
-        </div>
-
+      {/* Header */}
+      <HeaderTitle topic1={"มีนโยบายเกี่ยวกับ"} hightlightPolicy={hightlightPolicy} topic2={"มากถึง"} hightlightPolicyCount={hightlightPolicyCount.toString()} topic3={"นโยบาย"} />
         <CategoryGroup
           contents={policyCategories}
           onClick={() => {
@@ -133,7 +126,7 @@ const TopicPolicy = (props: Props) => {
             ))}
           </Grid>
         </div>
-        <div>
+        {/* <div>
           <Stack alignItems="center">
             <Pagination
               className="flex-center"
@@ -146,7 +139,7 @@ const TopicPolicy = (props: Props) => {
               )}
             />
           </Stack>
-        </div>
+        </div> */}
       </div>
     </div>
   );
