@@ -2,6 +2,7 @@ import * as d3 from 'd3'
 import React, { useRef, useEffect } from 'react'
 import Cluster from '../types/Cluster'
 import { useNavigate ,useParams} from 'react-router-dom'
+import { Button, IconButton, Tooltip } from '@mui/material'
 
 export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster}) {
   const navigate = useNavigate()
@@ -50,25 +51,41 @@ export default function Treemap({ width, height, data }: { width: number, height
           navigate(`/policy/${d.data.id}`)
         }
       )
+      .on('mouseover', 
+        ()=>{
+          console.log("OnHover jaaa")
+          return (
+            <Tooltip title={'hjhcdkjhfjedhfgjefdgdhjgvdfhjgvdfj'}>
+              <Button sx={{ m: 1 }}>Default Width [300px]</Button>
+            </Tooltip>
+          )
+        }
+      )
       const percentageFontSize = 34;
       const nameFontSize = 14;
         
       nodes
         .append('text')
         .text((d) => `${d.data.value}%`)
-        .attr('font-size', `${percentageFontSize}px`)
+        // .attr('font-size', `${percentageFontSize}px`)
+        .attr('font-size', (d:any)=>{
+          let tempNum = (d.data.value * 100)/percentageFontSize;
+          return `${tempNum < 18 ? 18 : tempNum}px`})
         .attr('font-weight', 'bold')
         .attr('fill', 'white')
-        .attr('x', 3)
+        .attr('x', 20)
         .attr('y', 64)
 
       nodes
         .append('text')
         .text((d) => `${d.data.name}`)
-        .attr('font-size', `${nameFontSize}px`)
+        // .attr('font-size', `${nameFontSize}px`)
+        .attr('font-size', (d:any)=>{
+          let tempNum = (d.data.value * 100)/percentageFontSize;
+          return `${tempNum}px`})
         .attr('font-weight', 'bold')
         .attr('fill', 'white')
-        .attr('x', 3)
+        .attr('x', 20)
         .attr('y', 96)
     }
 
