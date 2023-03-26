@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import Cluster from '../types/Cluster'
 import { useNavigate ,useParams} from 'react-router-dom'
 
-export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster }) {
+export default function Treemap({ width, height, data }: { width: number, height: number, data: Cluster}) {
   const navigate = useNavigate()
   const { TopicPolicyId } = useParams()
   const svgRef = useRef(null)

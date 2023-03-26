@@ -47,7 +47,6 @@ const TreeMapCard = (props: Props) => {
        <div className='shadow-xl'>
      {card1}
     </div>
-
     </ThemeProvider>
   );
 }

@@ -1,5 +1,5 @@
 export default interface Cluster {
-  findIndex(arg0: (item: any, i: any) => boolean): unknown;
+  // findIndex(arg0: (item: any, i: any) => boolean)?:;
   id?: number;
   name: string;
   value?: number;

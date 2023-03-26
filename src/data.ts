@@ -119,10 +119,6 @@ const data: Cluster = {
     "value": 0.88
     }
     ]
-    ,
-  findIndex: function (arg0: (item: any, i: any) => boolean): unknown {
-    throw new Error('Function not implemented.');
-  }
 };
   
   export default data;
