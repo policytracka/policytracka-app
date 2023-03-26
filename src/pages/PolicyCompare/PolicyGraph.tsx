@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import BarGraph from "./BarChart";
 import HeaderTitle from "../../components/HeaderTtitle";
 
 type Props = {};
 
+type ChartStruct = {
+  id: string,
+  rank: string, 
+  name: string,
+  supply: number
+  amount: number,
+  explorer: string,
+}
+
 const PolicyGraph = (props: Props) => {
   const navigate = useNavigate();
-
+  const { PolicyId } = useParams();
+  // const mapChart =  new Map<string, number>();
+  const [mapChart, setMapChart] = useState(null);
+  const [chartStruct, setChartStruct ]= useState<ChartStruct[]>([]);
   // Mockup data
   const policyTitle = "เพิ่มโรงเรียน 3";
   const countPolicy = 13;
@@ -71,9 +83,38 @@ const PolicyGraph = (props: Props) => {
     },
   ];
 
+
+
   const navigateToPartyPolicyPage = () => {
     navigate("/partypolicy");
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`)
+      const data = await res.json()
+      const dataArr = Object.values(data.group.data);
+      let mapChart =  new Map<string, number>();
+      for (let index = 0; index< dataArr.length-1; index ++) {
+        let ele: {
+          party: string;
+          title: string;
+        } = dataArr[index];
+        if (mapChart.get(ele.party)) {
+          let countVal = mapChart.get(ele.party) ? mapChart.get(ele.party) : 0;
+          mapChart.set(ele.party, countVal!++);
+        } else {
+          mapChart.set(ele.party, 0);
+        }
+      }
+      mapChart && setMapChart(mapChart);
+    };
+    const mapData = (mapChart: Map<string, number>) => {
+      mapData
+      // setChartStruct();
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-no-repeat min-h-screen w-full">

@@ -18,9 +18,13 @@ function App() {
             path="/topic-policy/:TopicPolicyId/:PolicyId"
             Component={PolicyGraph}
           />
-           <Route
+          <Route
             path="/policy/:PolicyId"
             Component={Policy}
+          />
+          <Route
+            path="/comnpare-barchart/:PolicyId"
+            Component={PolicyGraph}
           />
           {/* <Route path="/Compare/:PolicyId/:PartyId" Component={PolicyParty} /> */}
         </Routes>

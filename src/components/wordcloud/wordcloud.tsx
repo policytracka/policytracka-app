@@ -36,17 +36,27 @@ const card1 = (
           }}
         >
             <div className="gallery-img">
-                      <Zoom>
-                        <img
-                        src='../src/assets/wordcloud.png'
-                        alt="Zoom-images"
-                        width="500"/>
-                        </Zoom>
-                 </div>
+              <Zoom>
+                <img
+                src='../src/assets/wordcloud.png'
+                alt="Zoom-images"
+                width="500"/>
+              </Zoom>
+            </div>
         </Box>
     </React.Fragment>
 );
 const Card = (props: Props) => {
+  const [img, setImg] = useState<string>("");
+  useEffect(() => {
+    const fetchDatas = async () => {
+      const res = await fetch("https://www.policytracka/treemap");
+      const data = await res.json();
+      console.log("Img : ", data)
+      setImg(data);
+    };
+    fetchDatas();
+  }, []);
   return (
     <ThemeProvider theme={theme}>
      {card1}

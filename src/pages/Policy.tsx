@@ -18,7 +18,6 @@ const Policy = (props: Props) => {
     const fetchData = async () => {
       const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`);
       const data = await res.json()
-      console.log('Data ',data.group.data)
       setPolicyTitle(data.group.name)
       setPolicyAmount(data.group.data.length)
       setPolicyItems(data.group.data)
