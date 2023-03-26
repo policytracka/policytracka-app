@@ -7,6 +7,7 @@ import WordCloud from "../components/wordcloud/wordcloud";
 import data from "../data";
 import Card from "../components/card/card";
 import Cluster from "../types/Cluster";
+import TreeMapCard from "../components/TreemapCard/TreeMapCard";
 type Props = {};
 
 const Home = (props: Props) => {
@@ -27,23 +28,26 @@ const Home = (props: Props) => {
 
   return (
     <div className="bg-no-repeat min-h-screen w-full">
-      <body className="bg-auto bg-no-repeat min-h-screen w-full ">
+      <body className="flex justify-end bg-center bg-gradient-to-b from-[#FF585D] to-[#FFB549] bg-no-repeat min-h-screen w-full ">
         <div className="min-h-screen min-w-full">
           <div className="flex items-center">
-            <div className="relative isolate lg:px-0 ">
+          <div className="relative isolate pt-0 lg:px-0 ">
               <Navbar />
               <Hero />
-              <div className="grid grid-cols-2 place-items-center pt-4 ">
+              <div className="flex justify-center flex-row gap-4 pt-10">
                 <Card />
               </div>
-              <div className="grid grid-cols-1 gap-4 place-items-center pt-5 pb-5">
+              <div className="grid grid-cols-1 place-items-center pt-5 pb-5">
                 <WordCloud />
-                {<Treemap data={data} height={700} width={1400} />}
+                <br/>
+                <TreeMapCard/>
+                <br/>
               </div>
             </div>
           </div>
         </div>
       </body>
+
     </div>
   );
 };

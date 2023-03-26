@@ -18,7 +18,17 @@ export default function Treemap({ width, height, data }: { width: number, height
       .hierarchy<Cluster>(data)
       .sum((d) => d.value!)
       .sort((a, b) => b.value! - a.value!)
-
+    let tooltip = d3
+      .select('body')
+      .append('div')
+      .style('position', 'absolute')
+      .style('z-index', '10')
+      .style('visibility', 'hidden')
+      .style('background-color', 'white')
+      .style('border', 'solid')
+      .style('border-width', '2px')
+      .style('border-radius', '5px')
+      .style('padding', '5px');
     const treemapRoot = d3.treemap<Cluster>().size([width, height]).padding(1)(root)
 
     const nodes = svg
@@ -35,14 +45,26 @@ export default function Treemap({ width, height, data }: { width: number, height
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d) => colorScale(d.data.name))
       .attr('cursor', 'pointer')
+      .on('mouseover', function() {
+        tooltip.style('visibility', 'visible');
+      })
+      .on('mousemove', function(d) {
+        tooltip
+          .style('top', d.pageY - 10 + 'px')
+          .style('left', d.pageX + 10 + 'px')
+          .text(`${d.data.value} voters`);
+      })
+      .on('mouseout', function() {
+        tooltip.style('visibility', 'hidden');
+      })
       .on('click', 
         function(event, d) {
           navigate(`/policy/${d.data.id}`)
         }
       )
-      const percentageFontSize = 64;
-      const nameFontSize = 16;
-  
+      const percentageFontSize = 34;
+      const nameFontSize = 14;
+        
       nodes
         .append('text')
         .text((d) => `${d.data.value}%`)

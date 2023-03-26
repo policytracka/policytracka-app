@@ -52,7 +52,7 @@ const Policy = (props: Props) => {
           <div className="grid grid-cols-1">
             {policyItems.map((item, index) => (
               <div key={index}>
-                <ImageLeftCard party={item.party} title={item.title}  image={""}/>
+                <ImageLeftCard title={item.title} party={item.party}  image={""}/>
               </div>
             ))}
           </div>

@@ -1,9 +1,7 @@
-import {useState, useEffect} from 'react';
 import * as React from 'react';
-import ImageZoom from "react-image-zooom";
 import { Box, ThemeProvider, createTheme } from '@mui/system';
-
-
+import Treemap from '../../charts/Treemap';
+import data from '../../data';
 type Props = {}
 const theme = createTheme({
   palette: {
@@ -27,28 +25,25 @@ const card1 = (
          <Box
           sx={{
             bgcolor: 'background.paper',
-            boxShadow: 4,
+            boxShadow: 1,
             borderRadius: 2,
-            p: 2,
+            p: 3,
             minWidth: 250,
-            maxWidth: 700,
+            maxWidth: 1400,
           }}
         >
-            <div className="gallery-img">
-                      <ImageZoom
-                        src='../src/assets/wordcloud.png'
-                        alt="Zoom-images"
-                        zoom="300"
-                      />
-                 </div>
+          <Box>
+          {<Treemap data={data} height={700} width={1300} />}
+          </Box>
         </Box>
     </React.Fragment>
 );
-const Card = (props: Props) => {
+const TreeMapCard = (props: Props) => {
   return (
     <ThemeProvider theme={theme}>
      {card1}
     </ThemeProvider>
   );
 }
-export default Card
+
+export default TreeMapCard
