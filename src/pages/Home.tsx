@@ -35,6 +35,7 @@ const Home = (props: Props) => {
           <div className="relative isolate pt-0 lg:px-0 ">
               <Navbar />
               <Hero />
+              <div className="bg-white w-screen text-black pb-10 px-10">
               <div className="flex justify-center flex-row gap-8 pt-10">
                 <Card />
               </div>
@@ -43,6 +44,7 @@ const Home = (props: Props) => {
                 <br/>
                 <TreeMapCard/>
                 <br/>
+              </div>
               </div>
             </div>
           </div>

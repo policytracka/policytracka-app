@@ -59,7 +59,9 @@ const Card = (props: Props) => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
+      <div className='shadow-xl'>
      {card1}
+     </div>
     </ThemeProvider>
   );
 }

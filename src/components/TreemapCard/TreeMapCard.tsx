@@ -42,8 +42,12 @@ const card1 = (
 );
 const TreeMapCard = (props: Props) => {
   return (
+   
     <ThemeProvider theme={theme}>
+       <div className='shadow-xl'>
      {card1}
+    </div>
+
     </ThemeProvider>
   );
 }

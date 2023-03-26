@@ -47,7 +47,7 @@ const card2 = (
          <Box
           sx={{
             bgcolor: 'background.paper',
-            boxShadow: 1,
+            boxShadow: 3,
             borderRadius: 2,
             p: 2,
             minWidth: 250,
@@ -71,8 +71,12 @@ const card2 = (
 const Card = (props: Props) => {
   return (
     <ThemeProvider theme={theme}>
+      <div className='shadow-xl'>
      {card1}
+     </div>
+     <div className='shadow-xl'>
      {card2}
+     </div>
     </ThemeProvider>
   );
 }
