@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import * as React from 'react';
-import ImageZoom from "react-image-zooom";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css'
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 
 
@@ -35,11 +36,12 @@ const card1 = (
           }}
         >
             <div className="gallery-img">
-                      <ImageZoom
+                      <Zoom>
+                        <img
                         src='../src/assets/wordcloud.png'
                         alt="Zoom-images"
-                        zoom="300"
-                      />
+                        width="500"/>
+                        </Zoom>
                  </div>
         </Box>
     </React.Fragment>
