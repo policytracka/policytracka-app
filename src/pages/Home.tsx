@@ -35,7 +35,7 @@ const Home = (props: Props) => {
           <div className="relative isolate pt-0 lg:px-0 ">
               <Navbar />
               <Hero />
-              <div className="flex justify-center flex-row gap-4 pt-10">
+              <div className="flex justify-center flex-row gap-8 pt-10">
                 <Card />
               </div>
               <div className="grid grid-cols-1 place-items-center pt-10 pb-5">

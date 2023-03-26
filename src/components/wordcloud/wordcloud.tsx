@@ -32,7 +32,7 @@ const card1 = (
             borderRadius: 2,
             p: 2,
             minWidth: 250,
-            maxWidth: 700,
+            maxWidth: 900,
           }}
         >
             <div className="gallery-img">
@@ -40,7 +40,7 @@ const card1 = (
                 <img
                 src= "https://svgshare.com/i/rU9.svg"
                 alt="Zoom-images"
-                width="500"/>
+                width="900"/>
               </Zoom>
             </div>
         </Box>

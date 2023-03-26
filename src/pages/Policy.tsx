@@ -41,7 +41,7 @@ const Policy = (props: Props) => {
       </div>
       <div className="bg-white w-screen text-black pb-10 px-10">
         <HeaderTitle
-          topic1={"เปรียบเทียบ"}
+          topic1={"เปรียบเทียบนโยบาย"}
           hightlightPolicy={policyTitle}
           topic2={"พบ"}
           hightlightPolicyCount={policyAmount.toString()}
