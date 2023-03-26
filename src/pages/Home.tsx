@@ -41,7 +41,7 @@ const Home = (props: Props) => {
               <div className="grid grid-cols-1 place-items-center pt-10 pb-5">
                 <WordCloud />
                 <br/>
-                <div className="shadow-xl">
+                <div className="shadow-xl rounded-lg ">
                 {treeData !== undefined && <Treemap data={treeData} height={700} width={1300} />}
                 </div>
                 <br/>

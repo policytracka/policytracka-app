@@ -71,10 +71,10 @@ const card2 = (
 const Card = (props: Props) => {
   return (
     <ThemeProvider theme={theme}>
-      <div className='shadow-xl'>
+      <div className='shadow-xl rounded-lg '>
      {card1}
      </div>
-     <div className='shadow-xl'>
+     <div className='shadow-xl rounded-lg '>
      {card2}
      </div>
     </ThemeProvider>

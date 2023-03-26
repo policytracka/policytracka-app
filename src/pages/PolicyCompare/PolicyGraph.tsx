@@ -106,9 +106,14 @@ const PolicyGraph = (props: Props) => {
           hightlightPolicyCount={resultAmount.toString()}
           topic3={"นโยบาย"}
         />
-        { chartStruct !== undefined ? <BarGraph data={chartStruct} onClick={navigateToPartyPolicyPage} /> : <div style={{marginLeft: "50%"}}>
-          <CircularProgress /> 
-        </div>}
+        { 
+          chartStruct !== undefined ? 
+            <BarGraph data={chartStruct} onClick={navigateToPartyPolicyPage} /> 
+          : 
+            <div style={{marginLeft: "50%"}}>
+              <CircularProgress /> 
+            </div>
+        }
       </div>
     </div>
   );

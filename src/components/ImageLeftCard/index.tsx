@@ -19,7 +19,7 @@ export default function ImageLeftCard(props: Props) {
     <div className="w-full max-w-full flex shadow-md mb-10 border rounded-md">
       <div
         className="h-auto lg:h-auto w-64 flex-none bg-cover rounded-l text-center overflow-hidden"
-        style={{ backgroundImage: `url('/Partylogo/${PolicyLogo.indexOf(props.party)}.png')` , height: '100px', width: '100px'}}
+        style={{ backgroundImage: `url('/Partylogo/${PolicyLogo.indexOf(props.party)+1}.png')` , height: '100px', width: '100px'}}
         title="Woman holding a mug"
       ></div>
       <div className="rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
