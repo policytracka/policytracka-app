@@ -28,7 +28,7 @@ const card1 = (
             borderRadius: 2,
             p: 2,
             minWidth: 250,
-            maxWidth: 340,
+            maxWidth: 400,
           }}
         >
           <Box sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'Bold', textAlign:'left'}}>
@@ -51,7 +51,7 @@ const card2 = (
             borderRadius: 2,
             p: 2,
             minWidth: 250,
-            maxWidth: 360,
+            maxWidth: 400,
           }}
         >
           <Box sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'Bold', textAlign:'left'}}>
