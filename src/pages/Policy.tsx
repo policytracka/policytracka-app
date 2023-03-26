@@ -12,7 +12,7 @@ const Policy = (props: Props) => {
   const { PolicyId } = useParams();
   const [policyTitle, setPolicyTitle] = useState("");
   const [policyAmount, setPolicyAmount] = useState(0);
-  const [policyItems, setPolicyItems] = useState([]);
+  const [policyItems, setPolicyItems] = useState<(any[])>([]);
 
   useEffect(() => {
     const fetchData = async () => {
