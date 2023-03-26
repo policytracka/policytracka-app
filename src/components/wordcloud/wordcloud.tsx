@@ -38,7 +38,7 @@ const card1 = (
             <div className="gallery-img">
               <Zoom>
                 <img
-                src='../src/assets/wordcloud.png'
+                src= "https://svgshare.com/i/rU9.svg"
                 alt="Zoom-images"
                 width="500"/>
               </Zoom>

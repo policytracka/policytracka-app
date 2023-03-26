@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
 import BarGraph from "./BarChart";
 import HeaderTitle from "../../components/HeaderTtitle";
+import { CircularProgress } from "@mui/material";
 
 type Props = {};
 
@@ -18,72 +19,10 @@ type ChartStruct = {
 const PolicyGraph = (props: Props) => {
   const navigate = useNavigate();
   const { PolicyId } = useParams();
-  // const mapChart =  new Map<string, number>();
-  const [mapChart, setMapChart] = useState(null);
-  const [chartStruct, setChartStruct ]= useState<ChartStruct[]>([]);
-  // Mockup data
-  const policyTitle = "เพิ่มโรงเรียน 3";
-  const countPolicy = 13;
-  const chartData = [
-    {
-      id: "id1",
-      rank: "1",
-      name: "พรรคเพื่อไทย",
-      supply: "12",
-      amount: "12",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id2",
-      rank: "2",
-      name: "พรรคก้าวไกล",
-      supply: "5",
-      amount: "5",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id3",
-      rank: "3",
-      name: "พรรคแสงธรรม",
-      supply: "2",
-      amount: "2",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id4",
-      rank: "4",
-      name: "พรรคแสงส่อง",
-      supply: "3",
-      amount: "3",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id5",
-      rank: "5",
-      name: "พรรคเพื่อธรรม",
-      supply: "6",
-      amount: "6",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id6",
-      rank: "6",
-      name: "พรรคเพื่อไทย",
-      supply: "12",
-      amount: "12",
-      explorer: "https://blockchain.info/",
-    },
-    {
-      id: "id7",
-      rank: "7",
-      name: "พรรคก้าวไกล",
-      supply: "5",
-      amount: "5",
-      explorer: "https://blockchain.info/",
-    },
-  ];
-
-
+  const [mapChart, setMapChart] = useState<any[]>();
+  const [resultAmount, setResultAmount ] = useState(0);
+  const [chartStruct, setChartStruct ]= useState([]);
+  const [policyTitle, setPolicyTitle] = useState("");
 
   const navigateToPartyPolicyPage = () => {
     navigate("/partypolicy");
@@ -93,27 +32,48 @@ const PolicyGraph = (props: Props) => {
     const fetchData = async () => {
       const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`)
       const data = await res.json()
+      setPolicyTitle(data.group.name)
       const dataArr = Object.values(data.group.data);
+      setResultAmount(data.group.data.length);
       let mapChart =  new Map<string, number>();
       for (let index = 0; index< dataArr.length-1; index ++) {
         let ele: {
           party: string;
           title: string;
-        } = dataArr[index];
-        if (mapChart.get(ele.party)) {
+        } = dataArr[index] as {
+          party: string;
+          title: string;
+        };
+        if (mapChart.get(ele.party) !== undefined) {
           let countVal = mapChart.get(ele.party) ? mapChart.get(ele.party) : 0;
-          mapChart.set(ele.party, countVal!++);
+          mapChart.set(ele.party, countVal !== undefined ? countVal +1 : 0);
         } else {
-          mapChart.set(ele.party, 0);
+          mapChart.set(ele.party, 1);
         }
       }
-      mapChart && setMapChart(mapChart);
+      mapChart !== undefined && setMapChart(mapChart);
     };
-    const mapData = (mapChart: Map<string, number>) => {
-      mapData
-      // setChartStruct();
+    const mappingData = (mapTemp: Map<string, number> | null) => {
+      const arrMapVal = mapTemp && Array.from(mapTemp.values());
+      const arrMapKey = mapTemp && Array.from(mapTemp.keys());
+      let arrTemp = [];
+      if (arrMapVal && arrMapKey) {
+        for (let i = 0; i < arrMapKey.length-1; i++) {
+          let tempData = {
+            id: i,
+            rank: arrMapVal[i],
+            name: arrMapKey[i],
+            supply: arrMapVal[i],
+            amount: arrMapVal[i],
+          }
+      
+          arrTemp.push(tempData);
+        }
+        arrTemp !== undefined && setChartStruct(arrTemp)
+      }
     }
     fetchData();
+    mapChart !== undefined &&mappingData(mapChart);
   }, []);
 
   return (
@@ -143,10 +103,12 @@ const PolicyGraph = (props: Props) => {
           topic1={"เปรียบเทียบ"}
           hightlightPolicy={policyTitle}
           topic2={"พบ"}
-          hightlightPolicyCount={chartData.length.toString()}
+          hightlightPolicyCount={resultAmount.toString()}
           topic3={"นโยบาย"}
         />
-        <BarGraph data={chartData} onClick={navigateToPartyPolicyPage} />
+        { chartStruct !== undefined ? <BarGraph data={chartStruct} onClick={navigateToPartyPolicyPage} /> : <div style={{marginLeft: "50%"}}>
+          <CircularProgress /> 
+        </div>}
       </div>
     </div>
   );

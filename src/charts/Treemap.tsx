@@ -48,8 +48,6 @@ export default function Treemap({ width, height, data }: { width: number, height
       .on('mouseover', function() {
         d3.select(this)
         .transition()
-        .duration(100)
-          .style('fill', 'white')
       })
       .on('mousemove', function(d) {
         tooltip
