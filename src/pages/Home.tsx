@@ -35,7 +35,6 @@ const Home = (props: Props) => {
           <div className="relative isolate pt-0 lg:px-0 ">
               <Navbar />
               <Hero />
-              <div className="row-span-3">01</div>
               <div className="flex justify-center flex-row gap-4 pt-10">
                 <Card />
               </div>
