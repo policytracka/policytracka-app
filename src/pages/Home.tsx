@@ -17,6 +17,7 @@ const Home = (props: Props) => {
     const fetchDatas = async () => {
       const res = await fetch("https://www.policytracka.live/api/treemap");
       const data = await res.json();
+
       // const tempData = {
       //   name: "Cluster",
       //   children: data.treemap,
