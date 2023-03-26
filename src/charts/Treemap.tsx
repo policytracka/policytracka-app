@@ -45,22 +45,6 @@ export default function Treemap({ width, height, data }: { width: number, height
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d) => colorScale(d.data.name))
       .attr('cursor', 'pointer')
-      .on('mouseover', function() {
-        d3.select(this)
-        .transition()
-      })
-      .on('mousemove', function(d) {
-        tooltip
-          .style('top', d.pageY - 10 + 'px')
-          .style('left', d.pageX + 10 + 'px')
-          .text(`${d.data.value} voters`);
-      })
-      .on('mouseout', function() {
-        d3.select(this)
-          .transition()
-          .duration(2000)
-            .style('fill', '#4dbeff')
-      })
       .on('click', 
         function(event, d) {
           navigate(`/policy/${d.data.id}`)
