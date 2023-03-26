@@ -5,6 +5,7 @@ import ImageLeftCard from "../components/ImageLeftCard";
 import HeaderTitle4Line from "../components/HeaderTtitle4Line";
 import { useParams } from 'react-router-dom';
 import HeaderTitle from "../components/HeaderTtitle";
+import { CircularProgress } from "@mui/material";
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const Policy = (props: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`);
+      const res = await fetch(`https://www.policytracka.live/api/cluster_from_group?group=${PolicyId}`);
       const data = await res.json()
       setPolicyTitle(data.group.name)
       setPolicyAmount(data.group.data.length)
@@ -39,6 +40,10 @@ const Policy = (props: Props) => {
           </div>
         </div>
       </div>
+      
+            
+        
+          <div className="grid grid-cols-1">
       <div className="bg-white w-screen text-black pb-10 px-10">
         <HeaderTitle
           topic1={"เปรียบเทียบนโยบาย"}
@@ -47,14 +52,21 @@ const Policy = (props: Props) => {
           hightlightPolicyCount={policyAmount.toString()}
           topic3={"นโยบาย"}
         />
+        {
+        policyItems.length !== 0 ?
         <div className="my-10">
-          <div className="grid grid-cols-1">
+
             {policyItems.map((item, index) => (
               <div key={index}>
                 <ImageLeftCard title={item.title} party={item.party}  image={""}/>
               </div>
             ))}
           </div>
+          :
+          <div className="flex justify-center">
+              <CircularProgress/>
+          </div>
+}
         </div>
       </div>
     </div>
