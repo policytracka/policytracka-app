@@ -19,9 +19,9 @@ type ChartStruct = {
 const PolicyGraph = (props: Props) => {
   const navigate = useNavigate();
   const { PolicyId } = useParams();
-  const [mapChart, setMapChart] = useState<any[]>();
+  const [mapChart, setMapChart] = useState<Map<string, number>>();
   const [resultAmount, setResultAmount ] = useState(0);
-  const [chartStruct, setChartStruct ]= useState([]);
+  const [chartStruct, setChartStruct ]= useState<any[]>([]);
   const [policyTitle, setPolicyTitle] = useState("");
 
   const navigateToPartyPolicyPage = () => {
@@ -51,7 +51,7 @@ const PolicyGraph = (props: Props) => {
           mapChart.set(ele.party, 1);
         }
       }
-      mapChart !== undefined && setMapChart(mapChart);
+      mapChart !== undefined && setMapChart(mapChart as Map<string, number>);
     };
     const mappingData = (mapTemp: Map<string, number> | null) => {
       const arrMapVal = mapTemp && Array.from(mapTemp.values());
