@@ -15,13 +15,13 @@ const Home = (props: Props) => {
   const [treeData, setTreeData] = useState<Cluster>();
   useEffect(() => {
     const fetchDatas = async () => {
-      const res = await fetch("https://www.policytracka/treemap");
+      const res = await fetch("https://www.policytracka.live/api/treemap");
       const data = await res.json();
-      const tempData = {
-        name: "Cluster",
-        children: data.treemap,
-      };
-      setTreeData(tempData);
+      // const tempData = {
+      //   name: "Cluster",
+      //   children: data.treemap,
+      // };
+      // setTreeData(tempData);
     };
     fetchDatas();
   }, []);
@@ -34,10 +34,11 @@ const Home = (props: Props) => {
           <div className="relative isolate pt-0 lg:px-0 ">
               <Navbar />
               <Hero />
+              <div className="row-span-3">01</div>
               <div className="flex justify-center flex-row gap-4 pt-10">
                 <Card />
               </div>
-              <div className="grid grid-cols-1 place-items-center pt-5 pb-5">
+              <div className="grid grid-cols-1 place-items-center pt-10 pb-5">
                 <WordCloud />
                 <br/>
                 <TreeMapCard/>

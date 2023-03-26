@@ -46,7 +46,10 @@ export default function Treemap({ width, height, data }: { width: number, height
       .attr('fill', (d) => colorScale(d.data.name))
       .attr('cursor', 'pointer')
       .on('mouseover', function() {
-        tooltip.style('visibility', 'visible');
+        d3.select(this)
+        .transition()
+        .duration(100)
+          .style('fill', 'white')
       })
       .on('mousemove', function(d) {
         tooltip
@@ -55,7 +58,10 @@ export default function Treemap({ width, height, data }: { width: number, height
           .text(`${d.data.value} voters`);
       })
       .on('mouseout', function() {
-        tooltip.style('visibility', 'hidden');
+        d3.select(this)
+          .transition()
+          .duration(2000)
+            .style('fill', '#4dbeff')
       })
       .on('click', 
         function(event, d) {

@@ -3,6 +3,8 @@ import { Box, ThemeProvider, createTheme } from '@mui/system';
 import Treemap from '../../charts/Treemap';
 import data from '../../data';
 type Props = {}
+
+
 const theme = createTheme({
   palette: {
     background: {
