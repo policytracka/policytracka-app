@@ -17,12 +17,11 @@ const Home = (props: Props) => {
     const fetchDatas = async () => {
       const res = await fetch("https://www.policytracka.live/api/treemap");
       const data = await res.json();
-
-      // const tempData = {
-      //   name: "Cluster",
-      //   children: data.treemap,
-      // };
-      // setTreeData(tempData);
+      const tempData = {
+        name: "Cluster",
+        children: data.treemap,
+      };
+      setTreeData(tempData);
     };
     fetchDatas();
   }, []);
@@ -42,7 +41,9 @@ const Home = (props: Props) => {
               <div className="grid grid-cols-1 place-items-center pt-10 pb-5">
                 <WordCloud />
                 <br/>
-                <TreeMapCard/>
+                <div className="shadow-xl">
+                {treeData !== undefined && <Treemap data={treeData} height={700} width={1300} />}
+                </div>
                 <br/>
               </div>
               </div>

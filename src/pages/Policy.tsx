@@ -45,17 +45,16 @@ const Policy = (props: Props) => {
         
           <div className="grid grid-cols-1">
       <div className="bg-white w-screen text-black pb-10 px-10">
-        <HeaderTitle
+        {
+        policyItems.length !== 0 ?
+        <div className="my-10">
+            <HeaderTitle
           topic1={"เปรียบเทียบนโยบาย"}
           hightlightPolicy={policyTitle}
           topic2={"พบ"}
           hightlightPolicyCount={policyAmount.toString()}
           topic3={"นโยบาย"}
         />
-        {
-        policyItems.length !== 0 ?
-        <div className="my-10">
-
             {policyItems.map((item, index) => (
               <div key={index}>
                 <ImageLeftCard title={item.title} party={item.party}  image={""}/>
