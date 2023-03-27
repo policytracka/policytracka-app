@@ -30,7 +30,7 @@ const PolicyGraph = (props: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:8000/api/cluster_from_group?group=${PolicyId}`)
+      const res = await fetch(`https://www.policytracka.live/api/cluster_from_group?group=${PolicyId}`)
       const data = await res.json()
       setPolicyTitle(data.group.name)
       const dataArr = Object.values(data.group.data);
@@ -52,6 +52,7 @@ const PolicyGraph = (props: Props) => {
         }
       }
       mapChart !== undefined && setMapChart(mapChart as Map<string, number>);
+      console.log(mapChart)
     };
     const mappingData = (mapTemp: Map<string, number> | null) => {
       const arrMapVal = mapTemp && Array.from(mapTemp.values());
@@ -71,6 +72,7 @@ const PolicyGraph = (props: Props) => {
         }
         arrTemp !== undefined && setChartStruct(arrTemp)
       }
+      console.log(arrTemp)
     }
     fetchData();
     mapChart !== undefined &&mappingData(mapChart);
@@ -108,7 +110,7 @@ const PolicyGraph = (props: Props) => {
         />
         { 
           chartStruct !== undefined ? 
-            <BarGraph data={chartStruct} onClick={navigateToPartyPolicyPage} /> 
+            <BarGraph data={chartStruct} /> 
           : 
             <div style={{marginLeft: "50%"}}>
               <CircularProgress /> 

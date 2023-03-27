@@ -29,7 +29,7 @@ const PartyPolicy = (props: Props) => {
         </div>
         <div className="bg-white w-screen text-black pb-10 px-10">
         {/* Header */}
-        <HeaderTitle4Line title1={"นโยบาย"} title2={policyName} title3={partyName} title4={`พบ  ${policyAmount}  นโยบาย`} />
+        <HeaderTitle4Line title1={"นโยบาย"} title2={partyName} title3={policyName} title4={`พบ  ${policyAmount}  นโยบาย`} />
         {/* Content */}
         </div>
         </div>
