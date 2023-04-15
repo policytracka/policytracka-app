@@ -18,7 +18,8 @@ export default function Treemap({ width, height, data }: { width: number, height
       .style('border', 'solid')
       .style('border-width', '2px')
       .style('padding', '5px')
-      .style('display', 'none');
+      .style('display', 'none')
+      .style('pointer-events', 'none');
 
     const onMouseOver = (_: Event, d: d3.HierarchyRectangularNode<Cluster>) => {
       tooltip.style('display', 'block');
@@ -36,9 +37,10 @@ export default function Treemap({ width, height, data }: { width: number, height
       tooltip.style('display', 'none');
     };
 
-    function onClick(_: Event, d: d3.HierarchyRectangularNode<Cluster>) {
+    const onClick = (_: Event, d: d3.HierarchyRectangularNode<Cluster>) => {
+      tooltip.style('display', 'none');
       navigate(`/policy/${d.data.id}`)
-    }
+    };
 
     const svg = d3.select(svgRef.current)
 
