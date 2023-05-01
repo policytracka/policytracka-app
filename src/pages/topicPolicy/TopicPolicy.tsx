@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import CategoryGroup from "../components/CategoryGroup";
-import Navbar from "../components/navbar/navbar.js";
+import CategoryGroup from "../../components/categoryGroup";
+import Navbar from "../../components/navbar/navbar.js";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
-import ContentCard, { CardContent } from "../components/PolicyCard";
-import Banner from "../components/Banner";
-import HeaderTitle from "../components/HeaderTtitle";
+import ContentCard, { CardContent } from "../../components/policyCard";
+import Banner from "../../components/banner/Banner";
+import HeaderTitle from "../../components/header/HeaderTtitle";
 
 type Props = {};
 
@@ -81,24 +81,18 @@ const TopicPolicy = (props: Props) => {
   ]);
 
   return (
-    <div className="bg-no-repeat min-h-screen w-full">
+    <div>
       {/* Banner */}
-      <div className="bg-auto bg-no-repeat min-h-screen w-screen">
-        <div className="min-h-screen min-w-screen relative">
-          <div className="relative isolate px-6 pt-0 lg:px-8 ">
-            <Navbar />
-          </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 className="text-8xl mb-5 font-bold drop-shadow-lg">
-              Topic Policy
-            </h1>
-            <h5 className="text-4xl font-bold">หัวข้อนโยบาย</h5>
-          </div>
-        </div>
-      </div>
+      <Banner topic={"Topic Policy"} subtopic={"หัวข้อนโยบาย"} />
       <div className="bg-white w-screen text-black pb-10 px-10">
-      {/* Header */}
-      <HeaderTitle topic1={"มีนโยบายเกี่ยวกับ"} hightlightPolicy={hightlightPolicy} topic2={"มากถึง"} hightlightPolicyCount={hightlightPolicyCount.toString()} topic3={"นโยบาย"} />
+        {/* Header */}
+        <HeaderTitle
+          topic1={"มีนโยบายเกี่ยวกับ"}
+          hightlightPolicy={hightlightPolicy}
+          topic2={"มากถึง"}
+          hightlightPolicyCount={hightlightPolicyCount.toString()}
+          topic3={"นโยบาย"}
+        />
         <CategoryGroup
           contents={policyCategories}
           onClick={() => {
