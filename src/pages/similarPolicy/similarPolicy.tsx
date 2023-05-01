@@ -12,7 +12,7 @@ import BarGraph from "../PolicyCompare/BarChart";
 type Props = {};
 
 const Policy = (props: Props) => {
-  const { PolicyId } = useParams();
+  const { Keyword } = useParams();
   const [policyTitle, setPolicyTitle] = useState("");
   const [policyAmount, setPolicyAmount] = useState(0);
   const [policyItems, setPolicyItems] = useState<any[]>([]);
@@ -23,7 +23,7 @@ const Policy = (props: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `https://www.policytracka.live/api/cluster_from_group?group=${PolicyId}`
+        `https://www.policytracka.live/api/cluster?policy=${Keyword}`
       );
       const data = await res.json();
       setPolicyTitle(data.group.name);

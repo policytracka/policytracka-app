@@ -6,7 +6,7 @@ import TopicPolicy from "./pages/topicPolicy/TopicPolicy";
 import PolicyGraph from "./pages/PolicyCompare/PolicyGraph";
 import Policy from "./pages/policy/Policy";
 import Navbar from "./components/navbar/navbar";
-
+import similarPolicy from './pages/similarPolicy/similarPolicy'
 function App() {
   return (
     <div className="App">
@@ -28,6 +28,10 @@ function App() {
             <Route
               path="/comnpare-barchart/:PolicyId"
               Component={PolicyGraph}
+            />
+            <Route
+              path="/similar-policy/:Keyword"
+              Component={similarPolicy}
             />
             {/* <Route path="/Compare/:PolicyId/:PartyId" Component={PolicyParty} /> */}
           </Routes>
