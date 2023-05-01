@@ -15,10 +15,11 @@ const navContent = [
     path: "",
   },
   {
-    name: "ติดตามนโยบาย",
-    id: "follow_policy_page",
+    name: "ค้นหานโยบาย",
+    id: "similarkey",
     path: "",
   },
+  
 ];
 
 const Navbar = (props: Props) => {
