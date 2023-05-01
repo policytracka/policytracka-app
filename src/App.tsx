@@ -30,7 +30,7 @@ function App() {
               Component={PolicyGraph}
             />
             <Route
-              path="/similar-policy/:Keyword"
+              path="/similarkey/:Keyword"
               Component={similarPolicy}
             />
             {/* <Route path="/Compare/:PolicyId/:PartyId" Component={PolicyParty} /> */}
