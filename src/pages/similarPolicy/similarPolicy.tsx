@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import Grid from "@mui/material/Grid";
-import ImageLeftCard from "../../components/imageLeftCard";
+import ImageLeftCard from "../../components/ImageLeftCard";
 import HeaderTitle4Line from "../../components/header/HeaderTtitle4Line";
 import { useParams } from "react-router-dom";
 import HeaderTitle from "../../components/header/HeaderTtitle";
 import { CircularProgress } from "@mui/material";
 import Banner from "../../components/banner/Banner";
-import BarGraph from "../policyCompare/BarChart";
+import BarGraph from "../PolicyCompare/BarChart";
 
 type Props = {};
 

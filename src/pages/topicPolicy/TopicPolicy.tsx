@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CategoryGroup from "../../components/categoryGroup";
+import CategoryGroup from "../../components/CategoryGroup/index";
 import Navbar from "../../components/navbar/navbar.js";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
@@ -7,11 +7,14 @@ import Stack from "@mui/material/Stack";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
-import ContentCard, { CardContent } from "../../components/policyCard";
+import ContentCard, { CardContent } from "../../components/PolicyCard/index";
 import Banner from "../../components/banner/Banner";
 import HeaderTitle from "../../components/header/HeaderTtitle";
 
-type Props = {};
+type Props = {
+
+  refContent: any;
+};
 
 const TopicPolicy = (props: Props) => {
   const [hightlightPolicy, setHightlightPolicy] = useState("การศึกษา");
