@@ -102,7 +102,7 @@ const Policy = (props: Props) => {
               ))}
             </div>
           ) : (
-            <div className="pt-10">
+            <div className="flex justify-center pt-10">
               <CircularProgress />
             </div>
           )}
