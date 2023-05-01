@@ -31,7 +31,6 @@ const Navbar = (props: Props) => {
         <a className="flex items-center">
           <img src={Logo} className="w-[237px] ml-[73px]" alt="Flowbite Logo" />
         </a>
-        ,
         <button
           data-collapse-toggle="navbar-default"
           type="button"
