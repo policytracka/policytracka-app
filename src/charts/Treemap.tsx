@@ -50,7 +50,7 @@ export default function Treemap({
 
     const onClick = (_: Event, d: d3.HierarchyRectangularNode<Cluster>) => {
       tooltip.style("display", "none");
-      navigate(`/similarkey/${d.data.id}`);
+      navigate(`/similarkey/${d.data.name}`);
     };
 
     const svg = d3.select(svgRef.current);
