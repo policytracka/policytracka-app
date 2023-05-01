@@ -28,15 +28,8 @@ const Navbar = (props: Props) => {
   return (
     <nav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" className="flex items-center">
-          <img
-            src={Logo}
-            className="w-[237px] ml-[73px]"
-            alt="Flowbite Logo"
-            onClick={() => {
-              navigate("/");
-            }}
-          />
+        <a className="flex items-center">
+          <img src={Logo} className="w-[237px] ml-[73px]" alt="Flowbite Logo" />
         </a>
         ,
         <button
