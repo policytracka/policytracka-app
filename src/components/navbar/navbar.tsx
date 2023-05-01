@@ -26,7 +26,7 @@ const Navbar = (props: Props) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   return (
-    <nav>
+    <nav className="h-px-85">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <img src={Logo} className="w-[237px] ml-[73px]" alt="Flowbite Logo" />

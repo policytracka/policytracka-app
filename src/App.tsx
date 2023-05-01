@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <div className="bg-no-repeat min-h-screen w-full">
+        <div className="flex flex-col bg-no-repeat w-full">
           {/* router path */}
           <Routes>
             <Route path="/" Component={Home} />

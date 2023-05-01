@@ -12,7 +12,7 @@ const HeaderTitle = (props: Props) => {
   return (
     <div className="text-center py-10">
       <h3 className="text-2xl font-bold text-yellow-400">{props.topic1}</h3>
-      <h1 className="text-7xl my-2 font-bold text-red-500">
+      <h1 className="text-7xl my-6 font-bold text-red-500">
         {props.hightlightPolicy}
       </h1>
       <h3 className="text-2xl font-bold text-blue-900">
