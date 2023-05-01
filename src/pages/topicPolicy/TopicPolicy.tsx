@@ -12,8 +12,6 @@ import Banner from "../../components/banner/Banner";
 import HeaderTitle from "../../components/header/HeaderTtitle";
 
 type Props = {
-
-  refContent: any;
 };
 
 const TopicPolicy = (props: Props) => {
