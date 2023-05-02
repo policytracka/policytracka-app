@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import TopicPolicy from "./pages/topicPolicy/TopicPolicy";
 import Policy from "./pages/policy/Policy";
 import Navbar from "./components/navbar/navbar";
-import PolicyGraph from "./pages/partyPolicy/PartyPolicyCard";
+import PolicyGraph from "./pages/PartyPolicy/PartyPolicyCard";
 import SearchPolicy from "./pages/searchPolicy/searchPolicy";
 function App() {
   return (
