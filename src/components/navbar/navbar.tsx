@@ -10,16 +10,10 @@ const navContent = [
     path: "/",
   },
   {
-    name: "เปรียบเทียบนโยบาย",
-    id: "compare_policy_page",
-    path: "",
-  },
-  {
     name: "ค้นหานโยบาย",
     id: "similarkey",
-    path: "",
+    path: "/",
   },
-  
 ];
 
 const Navbar = (props: Props) => {
