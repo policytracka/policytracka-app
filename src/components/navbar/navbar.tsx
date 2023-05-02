@@ -11,8 +11,8 @@ const navContent = [
   },
   {
     name: "ค้นหานโยบาย",
-    id: "similar_policy",
-    path: "/similar-policy/",
+    id: "search-policy",
+    path: "/search-policy/",
   },
 ];
 
