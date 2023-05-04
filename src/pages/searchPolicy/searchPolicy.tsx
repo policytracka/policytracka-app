@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import HeaderTitle from "../../components/header/HeaderTtitle";
 import { CircularProgress } from "@mui/material";
 import Banner from "../../components/banner/Banner";
-import BarGraph from "../PolicyCompare/BarChart";
 import HeaderTitleWithSearch from "../../components/header/HeaderWithSearch";
 
 type Props = {};
@@ -25,10 +24,11 @@ const SearchPolicy = (props: Props) => {
       const resps = await res.json();
       console.log("data ", resps);
       setPolicyItems(resps.cluster);
-      setCountPolicy(policyItems.length);
+      
     };
     if (keyPolicySearch) {
       fetchData();
+      setCountPolicy(policyItems.length);
       setKeyPolicySearch("");
     }
   }, [keyPolicySearch]);
