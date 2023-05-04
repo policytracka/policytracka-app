@@ -24,14 +24,12 @@ const SearchPolicy = (props: Props) => {
       const resps = await res.json();
       console.log("data ", resps);
       setPolicyItems(resps.cluster);
-      
     };
     if (keyPolicySearch) {
       fetchData();
-      setCountPolicy(policyItems.length);
       setKeyPolicySearch("");
     }
-  }, [keyPolicySearch,countPolicy]);
+  }, [keyPolicySearch]);
 
   return (
     <div>
@@ -43,7 +41,7 @@ const SearchPolicy = (props: Props) => {
             <HeaderTitleWithSearch
               title1={"นโยบาย"}
               title2={"พบ"}
-              title3={countPolicy.toString()}
+              title3={policyItems.length.toString()}
               title4={"นโยบาย"}
               onSubmit={(val) => setKeyPolicySearch(val ? val : "")}
             />
