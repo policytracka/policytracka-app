@@ -31,7 +31,7 @@ const SearchPolicy = (props: Props) => {
       setCountPolicy(policyItems.length);
       setKeyPolicySearch("");
     }
-  }, [keyPolicySearch]);
+  }, [keyPolicySearch,countPolicy]);
 
   return (
     <div>
